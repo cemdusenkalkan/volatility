@@ -12,7 +12,7 @@ BATCH_SIZE = 32
 TEST_SPLIT_RATIO = 0.2
 VALIDATION_SPLIT_RATIO = 0.1
 
-FEATURE_COLUMNS = ['Open', 'High', 'Low', 'Close', 'Volume']
+FEATURE_COLUMNS = [ 'Open', 'High', 'Low', 'Close', 'Volume']
 TARGET_COLUMN = 'Future Volatility'
 
 RANDOM_SEED = 42
