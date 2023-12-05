@@ -1,4 +1,4 @@
-CSV_FILE_PATH = '/Users/Cem/Desktop/5minBTC.csv'
+CSV_FILE_PATH = '/Users/cem/Desktop/betece.csv'
 
 WINDOW_SIZE = 5
 DATE_COLUMN = 'Date'
