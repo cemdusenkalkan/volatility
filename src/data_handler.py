@@ -13,7 +13,7 @@ import pandas as pd
 
 def load_data(file_path):
     try:
-        data = pd.read.csv(file_path)
+        data = pd.read_csv(file_path)
         print("loading is succesfull.")
         return data
     except FileNotFoundError:
