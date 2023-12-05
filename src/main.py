@@ -53,6 +53,6 @@ def main():
 
     log("Volatility modeling process completed")
 
-
+#call
 if __name__ == "__main__":
     main()
