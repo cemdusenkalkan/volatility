@@ -1,4 +1,4 @@
-CSV_FILE_PATH = 'your/path/to/data.csv'
+CSV_FILE_PATH = '/Users/Cem/Desktop/5minBTC.csv'
 
 WINDOW_SIZE = 5
 DATE_COLUMN = 'Date'
@@ -23,8 +23,8 @@ RF_MIN_SAMPLES_LEAF = 1
 
 RANDOM_SEED = 42
 
-MODEL_SAVE_PATH = 'decide/yourself/the/path'
+MODEL_SAVE_PATH = '/Users/Cem/Desktop'
 
 HISTORY_WINDOW = 31
 
-RESULTS_SAVE_PATH = 'decide/yourself/for/paths/logs'
+RESULTS_SAVE_PATH = '/Users/Cem/Desktop'
