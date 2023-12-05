@@ -6,3 +6,5 @@ I still can not run it. Meanwhile, to take a break from solving the NaN Value er
 
 
 Maybe checking the values with ifnull can solve this problem.
+
+It solved! But now I encounter those nanvalues at log file? however, even running this code is a great job for me. I am sure I will handle them too
