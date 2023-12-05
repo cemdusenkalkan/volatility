@@ -1,35 +1,31 @@
-import logging
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, confusion_matrix
 
 
-def init_logging(log_file):
-    logging.basicConfig(filename=log_file, level=logging.INFO,
-                        format='%(asctime)s - %(levelname)s - %(message)s')
+def evaluate_model_performance(y_true, y_pred):
+    mse = mean_squared_error(y_true, y_pred)
+    mae = mean_absolute_error(y_true, y_pred)
+    r2 = r2_score(y_true, y_pred)
+    return {"MSE": mse, "MAE": mae, "R-squared": r2}
 
 
-def log(message, level=logging.INFO):
-    logging.log(level, message)
-
-
-def plot_feature_importances(importances, feature_names):
-    sns.barplot(x=importances, y=feature_names)
-    plt.xlabel('Importance')
-    plt.ylabel('Feature')
-    plt.title('Feature Importances')
+def plot_predictions_vs_actuals(y_true, y_pred, title='Actual vs Predicted'):
+    plt.figure(figsize=(10, 6))
+    plt.scatter(y_true, y_pred, alpha=0.3)
+    plt.plot(y_true, y_true, color='red')  # Diagonal line
+    plt.title(title)
+    plt.xlabel('Actual Values')
+    plt.ylabel('Predicted Values')
     plt.show()
 
 
-def plot_learning_curve(train_losses, val_losses, title='Learning Curve'):
-    plt.figure(figsize=(10, 6))
-    sns.set_style("whitegrid")
-    plt.plot(train_losses, label='Training Loss', color='blue')
-    plt.plot(val_losses, label='Validation Loss', color='red')
+def plot_error_distribution(y_true, y_pred, title='Error Distribution'):
+    errors = y_pred - y_true
+    sns.histplot(errors, kde=True)
     plt.title(title)
-    plt.xlabel('Epochs')
-    plt.ylabel('Loss')
-    plt.legend()
+    plt.xlabel('Prediction Error')
+    plt.ylabel('Frequency')
     plt.show()
 
 
@@ -43,14 +39,9 @@ def plot_confusion_matrix(y_true, y_pred, classes, title='Confusion Matrix'):
     plt.show()
 
 
-def plot_performance(history):
-    plt.figure(figsize=(10, 4))
-    plt.subplot(1, 2, 1)
-    plt.plot(history['mse'], label='MSE')
-    plt.plot(history['mae'], label='MAE')
-    plt.title('Model Performance')
-    plt.ylabel('Error')
-    plt.xlabel('Epoch')
-    plt.legend()
-    plt.tight_layout()
+def plot_feature_importances(importances, feature_names):
+    sns.barplot(x=importances, y=feature_names)
+    plt.xlabel('Importance')
+    plt.ylabel('Feature')
+    plt.title('Feature Importances')
     plt.show()
