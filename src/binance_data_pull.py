@@ -6,10 +6,9 @@ exchange = ccxt.binance()
 
 def fetch_daily_data(symbol):
 
-    data = exchange.fetch_ohlcv(symbol, timeframe='1d')
+    data = exchange.fetch_ohlcv(symbol, timeframe='5m')
     header = ['Timestamp', 'Open', 'High', 'Low', 'Close', 'Volume']
     df = pd.DataFrame(data, columns=header)
-    # Convert timestamp to datetime
     df['Date'] = pd.to_datetime(df['Timestamp'], unit='ms')
     df.drop('Timestamp', axis=1, inplace=True)
     # Set date as index
